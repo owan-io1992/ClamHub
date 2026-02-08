@@ -1,0 +1,10 @@
+language: 'rust'
+tasks:
+  build:
+    command: 'cargo build -p clamhub-hub'
+    inputs:
+      - 'src/**/*'
+      - 'Cargo.toml'
+  dev:
+    command: 'cargo run -p clamhub-hub'
+    local: true

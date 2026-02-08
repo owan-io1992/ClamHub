@@ -1,0 +1,25 @@
+# Rust
+/target
+/debug
+**/*.rs.bk
+
+# Node.js
+node_modules/
+dist/
+build/
+.env
+.env.local
+.DS_Store
+coverage/
+
+# Moonrepo
+.moon/cache/
+.moon/docker/
+
+# IDEs
+.idea/
+.vscode/
+
+# System
+.DS_Store
+Thumbs.db

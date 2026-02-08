@@ -1,0 +1,45 @@
+syntax = "proto3";
+package clamhub;
+
+service AgentService {
+  rpc Register (RegisterRequest) returns (RegisterResponse);
+  rpc Heartbeat (HeartbeatRequest) returns (HeartbeatResponse);
+}
+
+message RegisterRequest {
+  string hostname = 1;
+  string version = 2;
+}
+
+message RegisterResponse {
+  string agent_id = 1;
+}
+
+message HeartbeatRequest {
+  string agent_id = 1;
+  string status = 2;
+}
+
+message HeartbeatResponse {
+  bool acknowledged = 1;
+  // Commands to be executed by the agent
+  repeated AgentCommand pending_commands = 2;
+}
+
+message AgentCommand {
+  string id = 1;
+  oneof payload {
+    ScanCommand scan = 2;
+    UpdateConfigCommand update_config = 3;
+  }
+}
+
+message ScanCommand {
+  string path = 1;
+  bool recursive = 2;
+}
+
+message UpdateConfigCommand {
+  string key = 1;
+  string value = 2;
+}

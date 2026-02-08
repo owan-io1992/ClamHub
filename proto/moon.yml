@@ -1,0 +1,9 @@
+language: 'rust'
+tasks:
+  build:
+    command: 'cargo build -p clamhub-proto'
+    inputs:
+      - 'src/**/*'
+      - 'proto/**/*'
+      - 'Cargo.toml'
+      - 'build.rs'

@@ -1,0 +1,9 @@
+projects:
+  hub: 'hub'
+  agent: 'agent'
+  proto: 'proto'
+  web: 'web'
+  
+vcs:
+  manager: 'git'
+  defaultBranch: 'main'
