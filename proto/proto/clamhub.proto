@@ -4,6 +4,7 @@ package clamhub;
 service AgentService {
   rpc Register (RegisterRequest) returns (RegisterResponse);
   rpc Heartbeat (HeartbeatRequest) returns (HeartbeatResponse);
+  rpc ReportScanResult (ReportScanResultRequest) returns (ReportScanResultResponse);
 }
 
 message RegisterRequest {
@@ -42,4 +43,16 @@ message ScanCommand {
 message UpdateConfigCommand {
   string key = 1;
   string value = 2;
+}
+
+message ReportScanResultRequest {
+  string agent_id = 1;
+  string command_id = 2;
+  bool success = 3;
+  string details = 4;
+  int32 infected_files = 5;
+}
+
+message ReportScanResultResponse {
+  bool acknowledged = 1;
 }

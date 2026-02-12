@@ -1,0 +1,19 @@
+{
+  "name": "clamhub-dev",
+  "description": "ClamHub 项目开发团队 - 负责 Rust 后端、React 前端、CI/CD 和项目协调",
+  "createdAt": 1770871840086,
+  "leadAgentId": "team-lead@clamhub-dev",
+  "leadSessionId": "c4ba195d-aab5-44b8-a5fd-40884ba1a411",
+  "members": [
+    {
+      "agentId": "team-lead@clamhub-dev",
+      "name": "team-lead",
+      "agentType": "team-lead",
+      "model": "claude-haiku-4-5-20251001",
+      "joinedAt": 1770871840086,
+      "tmuxPaneId": "",
+      "cwd": "/home/owan/data/git/ClamHub",
+      "subscriptions": []
+    }
+  ]
+}

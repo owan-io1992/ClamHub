@@ -1,0 +1,13 @@
+{
+  "id": "8",
+  "subject": "优化 Agent 扫描逻辑和错误处理",
+  "description": "改进 Agent 的扫描功能和健壮性\n\n改进项：\n1. 更完善的 clamdscan 输出解析\n   - 正确识别所有威胁类型\n   - 提取更详细的扫描统计（文件数、大小等）\n2. 错误处理和重试机制\n   - clamd 连接失败处理\n   - 超时管理\n   - 优雅降级\n3. 资源管理\n   - 扫描过程中的 CPU/内存限制\n   - 超大文件处理\n4. 日志和监控\n   - 详细的扫描过程日志\n   - 性能指标收集\n\n修改文件：\n- agent/src/main.rs（完善扫描实现）\n\n交付件：\n- 更健壮的 Agent 扫描实现\n- 改进的错误报告",
+  "activeForm": "优化扫描逻辑",
+  "status": "pending",
+  "blocks": [
+    "9"
+  ],
+  "blockedBy": [
+    "1"
+  ]
+}

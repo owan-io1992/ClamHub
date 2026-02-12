@@ -69,6 +69,9 @@ graph TD
 
 ### Prerequisites
 - [Mise](https://mise.jdx.dev/) (The only tool you need to install manually).
+- **ClamAV**: You must install `clamav` and `clamav-daemon` for the agent to function correctly.
+  - Ubuntu/Debian: `sudo apt-get install clamav clamav-daemon`
+  - macOS: `brew install clamav` (Ensure `clamd` is configured and running)
 
 ### Installation
 

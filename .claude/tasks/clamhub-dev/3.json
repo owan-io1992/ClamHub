@@ -1,0 +1,14 @@
+{
+  "id": "3",
+  "subject": "实现 Web UI 用户认证",
+  "description": "为 Web 应用添加用户认证系统\n\n技术要求：\n- 在 Hub 的 REST API 中添加认证端点（登录、注册、验证）\n- 使用 JWT Token 或会话管理\n- 在前端实现登录页面和会话管理\n- 保护敏感 API 端点（扫描触发、配置修改等）\n- 在 React 中添加路由保护\n\n文件修改：\n- hub/src/main.rs（添加认证中间件）\n- web/src/ 中的页面和组件（登录界面、会话管理）\n- API 调用需要附加认证凭证\n\n交付件：\n- 完整的认证流程\n- 登录页面\n- 受保护的 API 端点",
+  "activeForm": "实现用户认证",
+  "status": "pending",
+  "blocks": [
+    "4",
+    "9"
+  ],
+  "blockedBy": [
+    "1"
+  ]
+}

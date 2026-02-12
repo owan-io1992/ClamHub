@@ -1,0 +1,13 @@
+{
+  "id": "6",
+  "subject": "实现扫描进度实时推送（WebSocket/Server-Sent Events）",
+  "description": "为前端添加实时扫描进度更新，而不仅仅是轮询\n\n技术选项：\n1. WebSocket：双向实时通信（Tokio-tungstenite）\n2. Server-Sent Events (SSE)：单向推送（更简单）\n\n实现细节：\n- 在 Hub 中添加 WebSocket 或 SSE 端点\n- Agent 扫描时推送中间状态更新\n- React 前端订阅实时更新\n- 显示进度条、当前文件、发现威胁等\n\n修改文件：\n- hub/src/main.rs（添加 WebSocket/SSE 服务）\n- web/src/ 中的 Dashboard 和 Scans 页面\n- web/src/api.js（实时连接管理）\n\n交付件：\n- 实时推送实现\n- 更新的 UI 展示实时扫描状态",
+  "activeForm": "实现实时更新推送",
+  "status": "pending",
+  "blocks": [
+    "9"
+  ],
+  "blockedBy": [
+    "1"
+  ]
+}

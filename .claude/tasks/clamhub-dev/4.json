@@ -1,0 +1,14 @@
+{
+  "id": "4",
+  "subject": "添加单元测试和集成测试",
+  "description": "为 Hub 和 Agent 添加测试覆盖\n\n后端测试：\n- Hub gRPC 服务单元测试（register、heartbeat、report_scan_result）\n- Agent gRPC 客户端模拟测试\n- REST API 端点测试\n- 状态管理和并发测试\n- 使用 tokio::test 和 tonic 测试工具\n\n前端测试：\n- React 组件单元测试\n- API 集成测试\n- 使用 Vitest 或 Jest\n\n覆盖目标：\n- 关键业务逻辑 > 80%\n- 错误处理路径\n- 边界情况",
+  "activeForm": "添加项目测试",
+  "status": "pending",
+  "blocks": [
+    "5"
+  ],
+  "blockedBy": [
+    "2",
+    "3"
+  ]
+}

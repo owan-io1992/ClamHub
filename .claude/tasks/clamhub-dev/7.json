@@ -1,0 +1,13 @@
+{
+  "id": "7",
+  "subject": "增强报告功能和数据可视化",
+  "description": "添加图表、统计分析和报告导出\n\n功能需求：\n1. 感染趋势图表（按时间、按 Agent）\n2. Agent 健康状态概览\n3. 扫描效率统计\n4. 威胁类型分布\n5. 报告导出（PDF/CSV）\n\n技术方案：\n- 使用 Recharts 或 Chart.js 绘制图表\n- 在后端添加聚合和统计 API\n- 实现报告模板和导出功能\n\n修改文件：\n- hub/src/main.rs（添加统计 API）\n- web/src/pages/（新增 Reports 页面）\n- web/package.json（添加图表库依赖）\n\n交付件：\n- 图表化仪表板\n- 统计分析页面\n- 报告导出功能",
+  "activeForm": "增强报告功能",
+  "status": "pending",
+  "blocks": [
+    "9"
+  ],
+  "blockedBy": [
+    "1"
+  ]
+}

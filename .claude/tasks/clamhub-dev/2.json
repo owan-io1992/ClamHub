@@ -1,0 +1,14 @@
+{
+  "id": "2",
+  "subject": "实现 mTLS 认证机制",
+  "description": "在 Hub 和 Agent 之间添加双向 TLS 认证\n\n技术要求：\n- 使用 Tonic 的 TLS 支持\n- 生成自签名证书（开发环境）\n- 配置客户端和服务器证书验证\n- 修改 hub/src/main.rs 中的 gRPC 服务器配置\n- 修改 agent/src/main.rs 中的 gRPC 客户端配置\n- 添加证书路径配置\n\n交付件：\n- 更新的 Hub gRPC 服务器（带 TLS）\n- 更新的 Agent gRPC 客户端（带 TLS）\n- 证书生成脚本或文档\n- 测试确认连接成功",
+  "activeForm": "实现 mTLS 认证",
+  "status": "pending",
+  "blocks": [
+    "4",
+    "9"
+  ],
+  "blockedBy": [
+    "1"
+  ]
+}

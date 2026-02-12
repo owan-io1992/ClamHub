@@ -1,0 +1,124 @@
+    Checking clamhub-hub v0.1.0 (/home/owan/data/git/ClamHub/hub)
+error: expected expression, found keyword `else`
+   --> hub/src/main.rs:145:15
+    |
+145 |             } else {
+    |               ^^^^ expected expression
+
+error: expected an expression
+   --> hub/src/main.rs:145:15
+    |
+145 |             } else {
+    |               ^^^^
+
+warning: unused import: `AgentService`
+ --> hub/src/main.rs:6:43
+  |
+6 | use clamhub_proto::agent_service_server::{AgentService, AgentServiceServer};
+  |                                           ^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused imports: `HeartbeatRequest`, `HeartbeatResponse`, `RegisterRequest`, `RegisterResponse`, `ReportScanResultRequest`, and `ReportScanResultResponse`
+ --> hub/src/main.rs:8:34
+  |
+8 |     agent_command, AgentCommand, HeartbeatRequest, HeartbeatResponse, RegisterRequest,
+  |                                  ^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^
+9 |     RegisterResponse, ScanCommand, ReportScanResultRequest, ReportScanResultResponse,
+  |     ^^^^^^^^^^^^^^^^               ^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `Request`, `Response`, and `Status`
+  --> hub/src/main.rs:11:32
+   |
+11 | use tonic::{transport::Server, Request, Response, Status};
+   |                                ^^^^^^^  ^^^^^^^^  ^^^^^^
+
+warning: unused import: `warn`
+  --> hub/src/main.rs:12:21
+   |
+12 | use tracing::{info, warn};
+   |                     ^^^^
+
+error[E0277]: `AppState` doesn't implement `std::fmt::Debug`
+  --> hub/src/main.rs:66:5
+   |
+64 | #[derive(Debug)]
+   |          ----- in this derive macro expansion
+65 | pub struct MyAgentService {
+66 |     state: AgentState,
+   |     ^^^^^^^^^^^^^^^^^ the trait `std::fmt::Debug` is not implemented for `AppState`
+   |
+   = note: add `#[derive(Debug)]` to `AppState` or manually `impl std::fmt::Debug for AppState`
+help: the trait `std::fmt::Debug` is implemented for `Arc<T, A>`
+  --> /rustc/254b59607d4417e9dffbc307138ae5c86280fe4c/library/alloc/src/sync.rs:3700:1
+help: consider annotating `AppState` with `#[derive(Debug)]`
+   |
+54 + #[derive(Debug)]
+55 | struct AppState {
+   |
+
+error[E0277]: the trait bound `MyAgentService: AgentService` is not satisfied
+   --> hub/src/main.rs:296:46
+    |
+296 |         .add_service(AgentServiceServer::new(hub_service))
+    |                      ----------------------- ^^^^^^^^^^^ unsatisfied trait bound
+    |                      |
+    |                      required by a bound introduced by this call
+    |
+help: the trait `AgentService` is not implemented for `MyAgentService`
+   --> hub/src/main.rs:65:1
+    |
+ 65 | pub struct MyAgentService {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^
+note: required by a bound in `AgentServiceServer::<T>::new`
+   --> /home/owan/data/git/ClamHub/target/debug/build/clamhub-proto-e4bd142fc377b807/out/clamhub.rs:288:13
+    |
+288 |     impl<T: AgentService> AgentServiceServer<T> {
+    |             ^^^^^^^^^^^^ required by this bound in `AgentServiceServer::<T>::new`
+289 |         pub fn new(inner: T) -> Self {
+    |                --- required by a bound in this associated function
+
+error[E0277]: the trait bound `MyAgentService: AgentService` is not satisfied
+   --> hub/src/main.rs:296:22
+    |
+296 |         .add_service(AgentServiceServer::new(hub_service))
+    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ unsatisfied trait bound
+    |
+help: the trait `AgentService` is not implemented for `MyAgentService`
+   --> hub/src/main.rs:65:1
+    |
+ 65 | pub struct MyAgentService {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^
+note: required by a bound in `AgentServiceServer`
+   --> /home/owan/data/git/ClamHub/target/debug/build/clamhub-proto-e4bd142fc377b807/out/clamhub.rs:280:38
+    |
+280 |     pub struct AgentServiceServer<T: AgentService> {
+    |                                      ^^^^^^^^^^^^ required by this bound in `AgentServiceServer`
+
+error[E0277]: the trait bound `MyAgentService: AgentService` is not satisfied
+   --> hub/src/main.rs:296:10
+    |
+296 |         .add_service(AgentServiceServer::new(hub_service))
+    |          ^^^^^^^^^^^ unsatisfied trait bound
+    |
+help: the trait `AgentService` is not implemented for `MyAgentService`
+   --> hub/src/main.rs:65:1
+    |
+ 65 | pub struct MyAgentService {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^
+help: the trait `Service<tonic::codegen::http::request::Request<B>>` is implemented for `AgentServiceServer<T>`
+   --> /home/owan/data/git/ClamHub/target/debug/build/clamhub-proto-e4bd142fc377b807/out/clamhub.rs:340:5
+    |
+340 | /     impl<T, B> tonic::codegen::Service<http::Request<B>> for AgentServiceServer<T>
+341 | |     where
+342 | |         T: AgentService,
+343 | |         B: Body + Send + 'static,
+344 | |         B::Error: Into<StdError> + Send + 'static,
+    | |__________________________________________________^
+    = note: required for `AgentServiceServer<MyAgentService>` to implement `Service<Request<Body>>`
+    = note: the full name for the type has been written to '/home/owan/data/git/ClamHub/target/debug/deps/clamhub_hub-dbb16a98eee7aa4b.long-type-14616028432584815320.txt'
+    = note: consider using `--verbose` to print the full type name to the console
+
+For more information about this error, try `rustc --explain E0277`.
+warning: `clamhub-hub` (bin "clamhub-hub") generated 4 warnings
+error: could not compile `clamhub-hub` (bin "clamhub-hub") due to 6 previous errors; 4 warnings emitted

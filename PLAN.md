@@ -21,7 +21,7 @@ This document outlines the development plan and division of labor for the ClamHu
 
 ### Phase 4: Agent (Client) Implementation
 - [x] **gRPC Client**: Implement the client-side logic to connect to Hub.
-- [ ] **ClamAV Integration**: Interaction with local `clamd` (via socket or CLI).
+- [x] **ClamAV Integration**: Interaction with local `clamd` (via socket or CLI).
 - [x] **Heartbeat**: Periodic status updates to Hub.
 
 ### Phase 5: Web UI (Frontend) Implementation
