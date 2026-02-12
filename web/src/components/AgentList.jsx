@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { Shield, ShieldAlert, Wifi, WifiOff, Play, CheckCircle, Loader2 } from 'lucide-react';
+import React from 'react';
+import { useQuery, useMutation } from '@tanstack/react-query';
+import { Shield, ShieldAlert, Wifi, WifiOff, Play, Loader2 } from 'lucide-react';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -28,9 +28,6 @@ const scanAgent = async (agentId) => {
 };
 
 export function AgentList() {
-    const queryClient = useQueryClient();
-    const [lastScanTriggered, setLastScanTriggered] = useState(null);
-
     const { data: agents, isLoading, error } = useQuery({
         queryKey: ['agents'],
         queryFn: fetchAgents,
@@ -40,7 +37,6 @@ export function AgentList() {
     const mutation = useMutation({
         mutationFn: scanAgent,
         onSuccess: (data, variables) => {
-            setLastScanTriggered(variables);
             // Invalidate to refresh list potentially? No, status update comes from agent heartbeat
             // But we can show a toast or feedback
             console.log("Scan triggered:", data);

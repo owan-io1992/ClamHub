@@ -8,3 +8,13 @@ tasks:
   dev:
     command: 'cargo run -p clamhub-hub'
     local: true
+  lint:
+    command: 'cargo clippy -p clamhub-hub -- -D warnings'
+    inputs:
+      - 'src/**/*'
+      - 'Cargo.toml'
+  format:
+    command: 'cargo fmt -p clamhub-hub -- --check'
+    inputs:
+      - 'src/**/*'
+      - 'Cargo.toml'

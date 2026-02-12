@@ -1,22 +1,35 @@
 language: 'javascript'
 type: 'application'
 
-toolchain:
-  node:
-    version: '22.12.0'
 
 tasks:
   dev:
-    command: 'npm run dev'
+    command: 'bun run dev'
     local: true
   build:
-    command: 'npm run build'
+    command: 'bun run build'
     inputs:
       - 'src/**/*'
       - 'vite.config.js'
       - 'index.html'
+      - 'postcss.config.js'
+      - 'tailwind.config.js'
+      - 'package.json'
+      - 'bun.lockb'
   lint:
-    command: 'npm run lint'
+    command: 'bun run lint'
+    inputs:
+      - 'src/**/*'
+      - 'eslint.config.js'
+      - 'package.json'
+      - 'bun.lock'
+  format:
+    command: 'bun run format'
+    inputs:
+      - 'src/**/*'
+      - '.prettierrc'
+      - 'package.json'
+      - 'bun.lock'
   preview:
-    command: 'npm run preview'
+    command: 'bun run preview'
     local: true

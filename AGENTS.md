@@ -37,7 +37,7 @@ The backend is a Rust workspace containing:
 ### 📦 Tooling & Infrastructure
 -   **Package Manager/Task Runner**: `moonrepo` (`.moon/`).
 -   **Runtime Manager**: `mise` (`mise.toml`) - manages Rust, Node.js, and other tool versions.
--   **Containers**: Use `podman` or `docker` for OCI image building (future).
+-   **Containers**: Use `docker` for OCI image building (future).
 
 ## 📂 Directory Structure
 
@@ -77,19 +77,19 @@ Project tasks are managed by `moonrepo`.
 
 -   **Build Entire Project**:
     ```bash
-    moon run :build
+    moon :build
     ```
 
 -   **Run Backend (Hub)**:
     ```bash
-    moon run hub:dev
+    moon hub:dev
     # Starts gRPC server on configured port (default 50051)
     # Starts REST API on configured port (default 3000)
     ```
 
 -   **Run Frontend (Web)**:
     ```bash
-    moon run web:dev
+    moon web:dev
     # Opens local dev server (usually http://localhost:5173)
     ```
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { AgentList } from './components/AgentList';
-import { useQueryClient, QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ShieldCheck, HardDrive, Settings, Activity } from 'lucide-react';
 
 const queryClient = new QueryClient();
