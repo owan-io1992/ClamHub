@@ -1,11 +1,10 @@
 use clamhub_proto::agent_service_client::AgentServiceClient;
-use clamhub_proto::{RegisterRequest, HeartbeatRequest, agent_command};
-use tonic::Request;
+use clamhub_proto::{agent_command, HeartbeatRequest, RegisterRequest};
+use std::sync::{Arc, Mutex};
 use std::time::Duration;
 use tokio::time;
-use tracing::{info, warn, error};
-use tracing_subscriber;
-use std::sync::{Arc, Mutex};
+use tonic::Request;
+use tracing::{error, info, warn};
 
 // Simulate local agent state
 struct AgentState {
@@ -44,7 +43,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             let s = state.lock().unwrap();
             s.status.clone()
         };
-        
+
         // Send Heartbeat
         let req = Request::new(HeartbeatRequest {
             agent_id: agent_id.clone(),
@@ -54,7 +53,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         match client.heartbeat(req).await {
             Ok(resp) => {
                 let inner = resp.into_inner();
-                
+
                 // Process any pending commands
                 for cmd in inner.pending_commands {
                     info!("Received command: {:?}", cmd.id);
@@ -62,12 +61,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                         // Clone for async block
                         let state_clone = state.clone();
                         let cmd_id = cmd.id.clone();
-                        
+
                         tokio::spawn(async move {
                             match payload {
                                 agent_command::Payload::Scan(_scan_cmd) => {
                                     info!("[Cmd {}] Starting simulated virus scan...", cmd_id);
-                                    
+
                                     // Update state to Scanning
                                     {
                                         let mut s = state_clone.lock().unwrap();
